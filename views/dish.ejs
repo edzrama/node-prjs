@@ -1,0 +1,20 @@
+<%- include('partials/header'); -%>
+
+<!--Calculate a suggested tip-->
+<% totalTip = (dish.price * 0.20).toFixed(2) ;%>
+<div id="dish">
+  <hr>
+  <h1><%= dish.title %><span class="price"><sup>$</sup><%= dish.price %></span></h1>
+  <p><%= dish.blurb %></p>
+  <br>
+  <p><strong>Suggested beverage: <%= dish.drink %></strong></p>
+  <p><em>Suggested Tip: <sup>$</sup>
+      <%= totalTip %>
+    </em></p>
+</div> <!-- dish -->
+<hr>
+
+<a href="dishes" class="button previous">&laquo; Back to Menu </a>
+
+
+<%- include('partials/footer'); -%>

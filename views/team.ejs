@@ -1,0 +1,23 @@
+<%- include('partials/header'); -%>
+
+
+  	<div id="team-members" class="cf">
+
+  			<h1> Our Team at Los Pollos Hermanos's</h1>
+  			<p> <%= StartingContent %></p>
+  		<hr>
+
+
+      <% teamMembers.forEach(member => { %>
+  		 <div class="member">
+  			<img src="img/<%= member.img %>" alt="<%= member.name %>">
+  			<h2><%= member.name %></h2>
+  			<p><%= member.bio %></p>
+  		 </div> <!-- members -->
+     <% }); %>
+
+  	</div> <!-- team-members -->
+
+  	<hr>
+
+<%- include('partials/footer'); -%>

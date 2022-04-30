@@ -1,0 +1,24 @@
+<%- include('partials/header'); -%>
+
+
+  	<div id="menu-items">
+  	  <h1> Our Delicious Menu</h1>
+  	  <p> <%= StartingContent %></p>
+  	  <p><em>Click any menu item to learn more about it.</em></p>
+  	  <hr>
+  	  <ul>
+
+  	   
+      <% Object.keys(menuItems).forEach(function(dish) {%>
+        <li><a href="item/<%= dish %>"><%= menuItems[dish].title %> </a><sup>$</sup><%= menuItems[dish].price %></li>
+
+        <%});%>
+
+
+  	  </ul>
+
+  	</div> <!-- menu-items-->
+
+  	<hr>
+
+<%- include('partials/footer'); -%>

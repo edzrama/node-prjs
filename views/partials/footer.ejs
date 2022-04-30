@@ -1,0 +1,65 @@
+<div id="footer" class="cf">
+
+  <div class="column three">
+
+  <strong>Phone</strong>
+
+  808.529.3819
+
+  </div><!--- column -->
+
+  <div class="column three">
+
+  <strong>Location</strong>
+
+  123 Kapiolani Boulevard
+
+  Honolulum,HI
+
+  </div><!--- column -->
+
+  <div class="column three last">
+
+  <strong>Hours</strong>
+
+  <em>Tuesday - Thursday</em></br>
+
+  1:00pm - 9:00pm <br><br>
+
+
+
+  <em>Friday - Saturday</em></br>
+
+  4:00pm - 11:00pm <br><br>
+
+
+
+  <em>Sunday - Monday</em></br>
+
+  Closed <br><br>
+
+  <% const start = new Date(openHours.getTodaysHours()[0].start).toLocaleTimeString([], {timeStyle: 'short'}); %>
+  <% const end = new Date(openHours.getTodaysHours()[0].end).toLocaleTimeString([], {timeStyle: 'short'});%>
+  <% const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];%>
+  <% const day = new Date(openHours.getTodaysHours()[0].start).getDay();%>
+  <% if(start === end) {%>
+    <strong class='closed'>Sorry, we're closed on <%= weekday[day] %>.</strong>
+  <%} else if(openHours.isOpen()) {%>
+    <strong class='open'>Yes, we're open! Today's hours are <%= start %> until <%= end %>.</strong>
+  <%} else {%>
+    <strong class='closed'>Sorry, we're closed. Today's hours are <%= start %> until <%= end %>.</strong>
+    <%} %>
+
+  </div><!--- column -->
+
+</div> <!--- footer -->
+
+<small>&copy; <%= currentYear %> <%= copyright %> </small>
+
+</div> <!--- content -->
+
+</div> <!--- wrapper -->
+
+
+
+</body>
