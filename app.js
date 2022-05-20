@@ -6,6 +6,13 @@ const mongoose = require("mongoose");
 const _ = require("lodash");
 const app = express();
 
+app.use(function (req, res, next) {
+  res.setHeader(
+    'Content-Security-Policy',
+    "default-src 'self';font-src 'self'; img-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self'; frame-src 'self'"
+  );
+  next();
+});
 
 app.set('view engine', 'ejs');
 
@@ -93,6 +100,7 @@ app.post("/", function(req, res){
   });
   if(listName === "Today") {
     item.save();
+    console.log("item inserted")
     res.redirect("/");
   } else {
     List.findOne({name: listName}, function(err, foundList){
